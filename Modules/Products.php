@@ -15,5 +15,13 @@ function getProducts(int $categoryId)
 
 function getProduct(int $productId)
 {
+    global $pdo;
 
+    $query = $pdo->prepare("SELECT * FROM products WHERE id = $productId");
+
+    $query->execute();
+
+    $p= $query->fetchAll(PDO::FETCH_CLASS,"Product");
+
+    return $p[0];
 }

@@ -20,21 +20,17 @@ include_once('defaults/head.php');
         </ol>
     </nav>
     <div class="row gy-3 ">
-    <?php global $products ?>
-        <?php global $categoryId?>
-    <?php foreach ($products as $product): ?>
-        <div class="col-sm-4 col-md-3">
-            <div class="card">
-                <div class="card-body text-center">
-                    <a href="/categories/<?= $categoryId ?>/product/<?= $product->id ?>">
-                        <img class="product-img img-responsive center-block" src='<?= $product->picture; ?>'/>
-                    </a>
-                    <div class="card-title mb-3"><?= $product->name; ?></div>
+        <?php global $product ?>
+            <div class="col-sm-4 col-md-8">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <img style="margin-left: 39%" class="product-img img-responsive center-block" src='<?= $product->picture; ?>'/>
+                        <div style="margin-left: 39%" class="card-title mb-3"><?= $product->name; ?></div>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php endforeach; ?>
     </div>
+
     <hr>
     <?php
     include_once('defaults/footer.php');
