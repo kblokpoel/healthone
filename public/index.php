@@ -11,47 +11,37 @@ $titleSuffix = "";
 switch ($params[1]) {
     case 'categories':
         $titleSuffix = ' | Categories';
+        $categories = getCategories();
+        include_once"../Templates/categories.php";
+        break;
+        
 
-        if (isset($_GET['category_id'])) {
-            $categoryId = $_GET['category_id'];
+    case 'category';
+        $titleSuffix= '| Category';
+        if (isset($_GET['id'])) {
+            $categoryId = $_GET['id'];
             $products = getProducts($categoryId);
             $name = getCategoryName($categoryId);
+            include_once "../Templates/product.php";
+        
 
-            if (isset($_GET['product_id'])) {
-                $productId = $_GET['product_id'];
-                $product = getProduct($productId);
-                $titleSuffix = ' | ' . $product->name;
-                if(isset($_POST['name']) && isset($_POST['review'])) {
-                    saveReview($_POST['name'],$_POST['review']);
-                    $reviews=getReviews($productId);
-                }
-                // TODO Zorg dat je hier de product pagina laat zien
-                include_once "../Templates/productPage.php";
-            } else {
-                // TODO Zorg dat je hier alle producten laat zien van een categorie
-                $titleSuffix = ' | Producten';
-                include_once "../Templates/products.php";
-            }
         } else {
-            // TODO Toon de categorieen
-            $categories = getCategories();
-            include_once "../Templates/categories.php";
+            $titleSuffix = ' | Home';
+            include_once "../Templates/home.php";
         }
-        break;
-    case 'contact':
-        $titleSuffix = ' | Contact';
-        include_once "../Templates/contact.php";
-        break;
-    case 'registreren':
-        $titleSuffix = ' | Registreren';
-        include_once "../Templates/registreren.php";
-        break;
-    default:
-        $titleSuffix = ' | Home';
-        include_once "../Templates/home.php";
-}
 
-function getTitle() {
-    global $title, $titleSuffix;
-    return $title . $titleSuffix;
-}
+        break;
+
+    case 'product':
+         if (isset($_GET['id'])) {
+           $productId = $_GET['id'];
+           $product = getProduct($productId);
+           $name = getCategoryName ($product->category_id);
+           $titleSuffix = ' | ' . $product->name;
+          // $reviews = getReviews($productId);
+            include_once "../Templates/sportapparaat_detail.php";
+            } else {
+             $titleSuffix = '| Home';
+             include_once "../Templates/home.php";
+         }
+             break;
