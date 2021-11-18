@@ -1,9 +1,9 @@
 body {
-    background-color: gainsboro
+    background-color: grey;
 }
 
 .container {
-    background-color: white;
+    background-color: lightgray;
 }
 
 .pull-right img-thumbnail {
@@ -26,3 +26,20 @@ body {
 .product-img {
     width: 70%;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+

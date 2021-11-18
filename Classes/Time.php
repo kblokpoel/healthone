@@ -1,12 +1,11 @@
 <?php
 
-
-class Category
+class Time
 {
+    public $opening_time;
+    public $day;
+    public $closing_time;
     public $id;
-    public $name;
-    public $picture;
-
     public function __construct()
     {
         settype($this->id, 'integer');

@@ -1,11 +1,10 @@
 <?php
 
-
 class Product
 {
     public $id;
     public $name;
-    public $image;
+    public $picture;
     public $description;
     public $category_id;
 

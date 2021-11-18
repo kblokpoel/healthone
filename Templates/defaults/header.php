@@ -1,5 +1,7 @@
 <header>
-    <img src="/img/logosport.png" class="bnner-img img-fluid" style="width: 300px; margin-top: 10px">
     <div class="header-row row lead" >
+        <h1 class="display-2">Health<span class="text-warning">One</span></h1>
+<!--        <img src='/img/Logo-Health-One.png' width="100vw" height="auto"/>-->
+
     </div>
 </header>

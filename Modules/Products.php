@@ -3,25 +3,24 @@
 function getProducts(int $categoryId)
 {
     global $pdo;
-
-    $query = $pdo->prepare("SELECT * FROM products WHERE category_id = $categoryId");
-
+    $query=$pdo->prepare("SELECT * FROM products WHERE category_id = :id");
+    $query->bindParam("id", $categoryId);
     $query->execute();
-
-    $p= $query->fetchAll(PDO::FETCH_CLASS,"Product");
-
-    return $p;
+    $result=$query->fetchAll(PDO::FETCH_CLASS,"Product");
+    return $result;
 }
 
 function getProduct(int $productId)
 {
     global $pdo;
-
-    $query = $pdo->prepare("SELECT * FROM products WHERE id = $productId");
-
-    $query->execute();
-
-    $p= $query->fetchAll(PDO::FETCH_CLASS,"Product");
-
-    return $p[0];
+    try
+    {
+        $query = $pdo->prepare("SELECT * FROM products WHERE id = :id");
+        $query->bindParam("id", $productId);
+        $query->setFetchMode(PDO::FETCH_CLASS, 'Product');
+        $query->execute();
+    }catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    return $query->fetch();
 }
