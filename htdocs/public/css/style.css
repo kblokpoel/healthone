@@ -1,9 +1,9 @@
 body {
-    background-color: grey;
+    background-color: #C3C3C3;
 }
 
 .container {
-    background-color: lightgray;
+    background-color: #FFFEBE;
 }
 
 .pull-right img-thumbnail {
@@ -21,6 +21,7 @@ body {
 
 .navbar {
     margin-bottom: 0;
+    background-color: #FFFEBE;
 }
 
 .product-img {

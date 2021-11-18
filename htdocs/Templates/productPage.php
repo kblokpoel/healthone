@@ -31,6 +31,7 @@ include_once('defaults/head.php');
             </div>
     </div>
 
+
     <hr>
     <?php
     include_once('defaults/footer.php');

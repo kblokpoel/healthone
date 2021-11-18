@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 okt 2021 om 00:11
+-- Gegenereerd op: 18 nov 2021 om 11:28
 -- Serverversie: 10.4.21-MariaDB
--- PHP-versie: 8.0.11
+-- PHP-versie: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -88,6 +88,32 @@ INSERT INTO `products` (`id`, `name`, `picture`, `description`, `category_id`) V
 (23, 'cardiostrong Loopband TX30', 'https://resources.t-fitness.com/bilder/cardiostrong/laufbaender/tx30/cardiostrong-treadmill-tx30-01_600.jpg', 'Snelle toegang tot je training: eenvoudige montage en zeer gebruiksvriendelijk\r\nGeeft o.a. tempo, rondetijd, helling of het calorieverbuik per uur weer\r\nMaak persoonlijke programma\'s aan op de cardiostrong Loopband TX30\r\nVeel trainingsprogramma\'s voor afwisseling en effectievere controle\r\nModern, gebruiksvriendelijk touchscreen-display met drie weergavemodi: atletiekbaan/ronde, overzicht met staafdiagrammen en snelheidsmeter\r\nLoopvlak met demping om de gewrichten te beschermen tijdens het lopen\r\nVeel snelkeuzetoetsen voor comfortabele bediening, bijvoorbeeld tijdens HIIT-training\r\nBluetooth-interface voor de borstband of om muziek van je smartphone af te spelen op de luidsprekers\r\nEnergiebesparingsmodus\r\nMax. gebruikersgewicht: 120 kg\r\nOpstelmaten - cardiostrong Loopband TX30: (L) 175.7 cm x (B) 79.1 cm x (H) 141.3 cm\r\nIngeklapt - cardiostrong Loopband TX30: (L) 114 cm x (B) 79 cm x (H) 148 cm', 4),
 (24, 'Darwin Loopband TM30', 'https://resources.t-fitness.com/bilder/darwin/laufband/tm30/darwin-laufband-tm30-01_600.jpg', 'De TM30 loopband heeft een schokdempende plank die gebruik maakt van een speciaal, elastisch loopvlak als schokabsorberende kern. De verhoogde vering biedt voldoende flexibiliteit. Het gewicht van de gebruiker wordt opgevangen en gedempt, daardoor wordt ook het geluid verminderd, waardoor je een comfortabele loopervaring hebt. Het eenvoudig in te klappen apparaat heeft een hellingshoek van vier procent, zo kom je met het lopen op een lichte helling dichter bij het hardlopen op straat.', 4);
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `time`
+--
+
+CREATE TABLE `time` (
+  `opening_time` time NOT NULL,
+  `day` varchar(255) NOT NULL,
+  `id` int(10) NOT NULL,
+  `closing_time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `time`
+--
+
+INSERT INTO `time` (`opening_time`, `day`, `id`, `closing_time`) VALUES
+('07:00:00', 'Maandag', 1, '20:00:00'),
+('08:00:00', 'Dinsdag', 2, '20:00:00'),
+('07:00:00', 'Woensdag', 3, '20:00:00'),
+('08:00:00', 'Donderdag', 4, '20:00:00'),
+('07:00:00', 'Vrijdag', 5, '20:30:00'),
+('08:00:00', 'Zaterdag', 6, '17:01:10'),
+('08:00:00', 'Zondag', 7, '13:00:00');
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -105,6 +131,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `time`
+--
+ALTER TABLE `time`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -119,6 +151,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `products`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT voor een tabel `time`
+--
+ALTER TABLE `time`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
